@@ -1,3 +1,4 @@
+# Example of pantry and recipes
 pantry = {
     "chicken": 500,
     "lemon": 2,
@@ -65,7 +66,6 @@ recipes = {
 
 display_dict = {}
 shopping_list = {}
-shopping_list_key = 1
 
 
 def add_shopping_item(data: dict, item: str, amount: int) -> None:
@@ -95,8 +95,10 @@ while True:
         break
     elif choice in display_dict:
         selected_item = display_dict[choice]
+        
         print(f"You have selected {selected_item}")
         print("checking ingredients...")
+        
         ingredients = recipes[selected_item]
         for food_item, required_quantity in ingredients.items():
             quantity_in_pantry = pantry.get(food_item, 0)
@@ -107,7 +109,7 @@ while True:
                 print(f"\tYou need to buy {quantity_to_buy} of {food_item}")
                 add_shopping_item(shopping_list, food_item, quantity_to_buy)
 
-print("Here is the list of ingredients you should bye for your recipes:")
+print("Here is the list of ingredients you should buy for your recipes:")
 print("----------------------------------------------------------------")
 
 for number, (key, value) in enumerate(shopping_list.items()):
