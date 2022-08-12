@@ -17,7 +17,7 @@ pantry = {
     "pepper": 8,
     "egg": 6,
     "pizza": 2,
-    "spam": 1,
+    "spam": 5,
 }
 
 recipes = {
@@ -65,7 +65,6 @@ recipes = {
 
 display_dict = {}
 shopping_list = {}
-shopping_list_key = 1
 
 
 def add_shopping_item(data: dict, item: str, amount: int) -> None:
@@ -74,7 +73,7 @@ def add_shopping_item(data: dict, item: str, amount: int) -> None:
 
     :param data: The dictionary
     :param item: The item to be bought
-    :param amount: the amount to be bought
+    :param amount: The amount to be bought
     """
     data[item] = data.setdefault(item, 0) + amount
 
@@ -96,7 +95,8 @@ while True:
     elif choice in display_dict:
         selected_item = display_dict[choice]
         print(f"You have selected {selected_item}")
-        print("checking ingredients...")
+        print()
+        print("Checking ingredients: ...")
         ingredients = recipes[selected_item]
         for food_item, required_quantity in ingredients.items():
             quantity_in_pantry = pantry.get(food_item, 0)
@@ -107,8 +107,8 @@ while True:
                 print(f"\tYou need to buy {quantity_to_buy} of {food_item}")
                 add_shopping_item(shopping_list, food_item, quantity_to_buy)
 
-print("Here is the list of ingredients you should bye for your recipes:")
-print("----------------------------------------------------------------")
+print("Here is the list of ingredients \nyou should buy for your recipes:")
+print("-" * 35)
 
 for number, (key, value) in enumerate(shopping_list.items()):
     print(number + 1, (key, value), sep=": ")
