@@ -73,8 +73,8 @@ def add_shopping_item(data: dict, item: str, amount: int) -> None:
     amount.
 
     :param data: The dictionary
-    :param item: The item to be bought
-    :param amount: the amount to be bought
+    :param item: The ingredient to be bought
+    :param amount: The amount to be bought
     """
     data[item] = data.setdefault(item, 0) + amount
 
