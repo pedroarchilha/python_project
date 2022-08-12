@@ -17,7 +17,7 @@ pantry = {
     "pepper": 8,
     "egg": 6,
     "pizza": 2,
-    "spam": 8,
+    "spam": 5,
 }
 
 recipes = {
